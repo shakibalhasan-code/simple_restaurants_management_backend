@@ -15,7 +15,7 @@ router.post('/addSell', async (req, res) => {
     const salesData = [];
 
     // Fetch the timezone from the settings table
-    const timezoneSetting = await db.Setting.findOne({ where: { key: 'timezone' } });
+    const timezoneSetting = await db.Setting.findOne({ where: { timezone: 'Asia/Dhaka' } });
     const timezone = timezoneSetting ? timezoneSetting.value : 'UTC'; // Default to UTC if not found
 
     for (const sale of sales) {

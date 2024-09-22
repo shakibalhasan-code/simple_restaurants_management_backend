@@ -9,7 +9,7 @@ router.post('/createProduct', async (req, res) => {
     const { productName, productPrice, productImage } = req.body;
 
     // Fetch the timezone from the settings table
-    const timezoneSetting = await db.Setting.findOne({ where: { key: 'timezone' } });
+    const timezoneSetting = await db.Setting.findOne({ where: { timezone: 'Asia/Dhaka' } });
     const timezone = timezoneSetting ? timezoneSetting.value : 'UTC'; // Default to UTC if not found
 
     const product = await db.Product.create({
@@ -25,7 +25,6 @@ router.post('/createProduct', async (req, res) => {
     res.status(500).json({ message: 'Error creating product', error });
   }
 });
-
 
 
 // Get all products

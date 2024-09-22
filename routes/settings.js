@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models'); // Assuming Sequelize is configured here
+const moment = require('moment-timezone'); // Add moment-timezone
 
 db.sequelize.sync({ force: true }) // This will drop the table and recreate it
   .then(() => console.log('Database connected successfully!'))
